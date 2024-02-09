@@ -3,6 +3,9 @@
 ## Go Installation
 
 First, download and install Go programming language:
+```bash
+sudo apt install build-essential
+```
 
 ```bash
 wget https://dl.google.com/go/go1.20.6.linux-amd64.tar.gz
