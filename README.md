@@ -43,17 +43,17 @@ ignite chain build
 
 rm -rf ~/.junction
 
-junctiond init <moniker>
+$HOME/go/bin/junctiond init <moniker>
 
 cp resources/genesis/genesis.json ~/.junction/config/genesis.json
 
-junctiond start --api.enable   --api.address "0.0.0.0:1317" --rpc.laddr "0.0.0.0:26657" --p2p.laddr "0.0.0.0:26656"  --p2p.persistent_peers="009075e1d1b0989ab2d0563c9e7454eb6c320772@35.200.232.241:26656" --minimum-gas-prices ="0.0001dair"
+$HOME/go/bin/junctiond start --api.enable   --api.address "tcp://0.0.0.0:1317" --rpc.laddr "tcp://0.0.0.0:26657" --p2p.laddr "tcp://0.0.0.0:26656"  --p2p.persistent_peers="009075e1d1b0989ab2d0563c9e7454eb6c320772@35.200.232.241:26656" --minimum-gas-prices ="0.0001dair"
 ```
 
 ## Status Check
 To check the status of the node, run the following command:
 ```bash
-junctiond status
+$HOME/go/bin/junctiond status
 ```
 
 ## Junction Validator Node
@@ -62,9 +62,9 @@ After the Catching is False, you can create a validator node.
 ```bash
 junctiond keys add <key-name>
 
-junctiond tx staking create-validator \
+$HOME/go/bin/junctiond tx staking create-validator \
 --amount=58stake \
---pubkey=$(junctiond tendermint show-validator) \
+--pubkey=$($HOME/go/bin/junctiond tendermint show-validator) \
 --moniker=<moniker> \
 --chain-id=junction \
 --commission-rate="0.05" \
@@ -75,6 +75,6 @@ junctiond tx staking create-validator \
 --fees="2stake" \
 --from=<key-name> -y
 
-junctiond query tendermint-validator-set
+$HOME/go/bin/junctiond query tendermint-validator-set
 ```
 
