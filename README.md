@@ -60,7 +60,7 @@ $HOME/go/bin/junctiond status
 After the Catching is False, you can create a validator node.
 
 ```bash
-junctiond keys add <key-name>
+$HOME/go/bin/junctiond keys add <key-name>
 
 $HOME/go/bin/junctiond tx staking create-validator \
 --amount=58stake \
